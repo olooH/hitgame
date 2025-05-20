@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React, { useState } from "react";
+import StartScreen from "./components/StartScreen";
+import Countdown from "./components/Countdown";
+import GameScreen from "./components/GameScreen";
+import ResultScreen from "./components/ResultScreen";
 
 function App() {
+  const [screen, setScreen] = useState("start"); // start → countdown → game → result
+  const [score, setScore] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-green-50 flex justify-center items-center">
+      {screen === "start" && <StartScreen onStart={() => setScreen("countdown")} />}
+      {screen === "countdown" && (
+        <Countdown
+          onFinish={() => setScreen("game")}
+        />
+      )}
+      {screen === "game" && (
+        <GameScreen
+          onFinish={(finalScore) => {
+            setScore(finalScore);
+            setScreen("result");
+          }}
+        />
+      )}
+      {screen === "result" && (
+        <ResultScreen
+          score={score}
+          onRetry={() => {
+            setScore(0);
+            setScreen("countdown");
+          }}
+        />
+      )}
     </div>
   );
 }

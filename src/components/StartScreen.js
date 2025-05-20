@@ -9,6 +9,8 @@ export default function StartScreen({
   setCount,
   setScore,
 }) {
+  const PUB = process.env.PUBLIC_URL; // 배포 경로 자동 반영
+
   // ===== START 화면 =====
   if (screen === "start") {
     return (
@@ -24,7 +26,7 @@ export default function StartScreen({
       >
         {/* 로고 */}
         <img
-          src={`${process.env.PUBLIC_URL}/logo.png`}
+          src={`${PUB}/logo.png`}
           alt="로고"
           style={{
             position: "absolute",
@@ -41,7 +43,7 @@ export default function StartScreen({
         </h1>
 
         <img
-          src={`${process.env.PUBLIC_URL}/soccerball.png`}
+          src={`${PUB}/soccerball.png`}
           alt="축구공"
           onClick={() => setScreen("countdown")}
           style={{
@@ -113,7 +115,7 @@ export default function StartScreen({
         </div>
 
         <img
-          src="/soccerball.png"
+          src={`${PUB}/soccerball.png`}
           alt="클릭공"
           onClick={() => setScore((s) => s + 1)}
           style={{

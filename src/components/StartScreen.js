@@ -9,7 +9,7 @@ export default function StartScreen({
   setCount,
   setScore,
 }) {
-  const PUB = process.env.PUBLIC_URL; // 배포 경로 자동 반영
+  const PUB = process.env.PUBLIC_URL;
 
   // ===== START 화면 =====
   if (screen === "start") {
@@ -18,8 +18,9 @@ export default function StartScreen({
         style={{
           width: "100%",
           height: "100%",
+          position: "relative",
           textAlign: "center",
-          color: "#fff",
+          color: "#FFFFFF",
           padding: "0 16px",
           boxSizing: "border-box",
         }}
@@ -27,36 +28,69 @@ export default function StartScreen({
         {/* 로고 */}
         <img
           src={`${PUB}/logo.png`}
-          alt="로고"
+          alt="매치업 로고"
           style={{
             position: "absolute",
-            top: 24,
+            top: 20,
             left: "50%",
             transform: "translateX(-50%)",
-            width: 96,
+            width: 100,
           }}
         />
 
-        <p style={{ marginTop: 120, fontSize: 14 }}>가장 빠른 사람은 누구?!</p>
-        <h1 style={{ fontSize: 24, fontWeight: "bold", margin: "4px 0" }}>
-          축구공 연타 대결 ⚽
-        </h1>
+        {/* 텍스트 */}
+        <div style={{ marginTop: 140, textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}>
+          <p style={{ fontSize: 14, lineHeight: 1.2 }}>
+            가장 빠른 사람은 누구?!
+          </p>
+          <h1 style={{ fontSize: 24, fontWeight: 700, margin: "8px 0" }}>
+            축구공 연타 대결 <span role="img">⚽</span>
+          </h1>
+        </div>
 
+        {/* 축구공 버튼 */}
         <img
           src={`${PUB}/soccerball.png`}
           alt="축구공"
           onClick={() => setScreen("countdown")}
           style={{
-            marginTop: 40,
+            marginTop: 32,
             width: "60%",
-            maxWidth: 180,
+            maxWidth: 200,
             aspectRatio: "1 / 1",
             objectFit: "contain",
             cursor: "pointer",
+            filter: "drop-shadow(0 8px 12px rgba(0,0,0,0.5))",
+            transition: "transform 0.1s ease, filter 0.2s ease",
+          }}
+          onMouseDown={e => {
+            e.currentTarget.style.transform = "scale(0.93)";
+            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+          }}
+          onMouseUp={e => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
+          }}
+          onTouchStart={e => {
+            e.currentTarget.style.transform = "scale(0.93)";
+            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+          }}
+          onTouchEnd={e => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
           }}
         />
 
-        <p style={{ marginTop: 24, fontSize: 14 }}>공을 누르면 시작해요!</p>
+        {/* 안내문 */}
+        <p
+          style={{
+            marginTop: 28,
+            fontSize: 14,
+            textShadow: "0 1px 2px rgba(0,0,0,0.6)",
+          }}
+        >
+          공을 누르면 시작해요!
+        </p>
       </div>
     );
   }
@@ -71,9 +105,10 @@ export default function StartScreen({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "#fff",
+          color: "#FFFFFF",
           fontSize: 72,
           fontWeight: "bold",
+          textShadow: "0 2px 4px rgba(0,0,0,0.6)",
         }}
       >
         {count}
@@ -88,12 +123,12 @@ export default function StartScreen({
         style={{
           width: "100%",
           textAlign: "center",
-          color: "#fff",
+          color: "#FFFFFF",
           paddingTop: 24,
           boxSizing: "border-box",
         }}
       >
-        {/* 진행바 */}
+        {/* 부드러운 진행바 */}
         <div
           style={{
             width: "80%",
@@ -101,33 +136,48 @@ export default function StartScreen({
             background: "rgba(255,255,255,0.3)",
             margin: "0 auto 16px",
             borderRadius: 4,
+            overflow: "hidden",
           }}
         >
           <div
             style={{
-              width: `${(timeLeft / 5) * 100}%`,
               height: "100%",
               background: "#4ade80",
-              borderRadius: 4,
-              transition: "width 0.2s linear",
+              animation: "progress 5s linear forwards",
             }}
           />
         </div>
 
+        {/* 연타용 축구공 */}
         <img
           src={`${PUB}/soccerball.png`}
           alt="클릭공"
-          onClick={() => setScore((s) => s + 1)}
+          onClick={() => setScore(s => s + 1)}
           style={{
             width: "60%",
-            maxWidth: 180,
+            maxWidth: 200,
             aspectRatio: "1 / 1",
             objectFit: "contain",
             cursor: "pointer",
-            transition: "transform 0.1s",
+            filter: "drop-shadow(0 8px 12px rgba(0,0,0,0.5))",
+            transition: "transform 0.1s ease, filter 0.2s ease",
           }}
-          onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.95)")}
-          onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          onMouseDown={e => {
+            e.currentTarget.style.transform = "scale(0.93)";
+            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+          }}
+          onMouseUp={e => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
+          }}
+          onTouchStart={e => {
+            e.currentTarget.style.transform = "scale(0.93)";
+            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+          }}
+          onTouchEnd={e => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
+          }}
         />
 
         <p style={{ marginTop: 16, fontSize: 18 }}>클릭 수: {score}</p>
@@ -141,12 +191,19 @@ export default function StartScreen({
       style={{
         width: "100%",
         textAlign: "center",
-        color: "#fff",
+        color: "#FFFFFF",
         paddingTop: 24,
         boxSizing: "border-box",
       }}
     >
-      <h1 style={{ fontSize: 20, fontWeight: "bold", marginBottom: 16 }}>
+      <h1
+        style={{
+          fontSize: 20,
+          fontWeight: "bold",
+          marginBottom: 16,
+          textShadow: "0 2px 4px rgba(0,0,0,0.6)",
+        }}
+      >
         게임 끝!
       </h1>
       <p style={{ fontSize: 36, fontWeight: "bold" }}>{score}회</p>
@@ -160,8 +217,8 @@ export default function StartScreen({
         style={{
           marginTop: 24,
           padding: "8px 24px",
-          background: "#fff",
-          color: "#000",
+          background: "#FFFFFF",
+          color: "#000000",
           border: "none",
           borderRadius: 9999,
           fontWeight: "600",

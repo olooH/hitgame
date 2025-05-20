@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hitgame/static/css/main.6f3653df.css",
+    "main.js": "/hitgame/static/js/main.84669aa5.js",
+    "static/js/453.b0d8b43f.chunk.js": "/hitgame/static/js/453.b0d8b43f.chunk.js",
+    "index.html": "/hitgame/index.html",
+    "main.6f3653df.css.map": "/hitgame/static/css/main.6f3653df.css.map",
+    "main.84669aa5.js.map": "/hitgame/static/js/main.84669aa5.js.map",
+    "453.b0d8b43f.chunk.js.map": "/hitgame/static/js/453.b0d8b43f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6f3653df.css",
+    "static/js/main.84669aa5.js"
+  ]
+}

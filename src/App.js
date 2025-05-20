@@ -49,7 +49,7 @@ function App() {
           height: "100%",
           backgroundImage: `
             linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-            url('/background.jpg')
+            url(${process.env.PUBLIC_URL}/background.jpg)
           `,
           backgroundSize: "cover",
           backgroundPosition: "center",

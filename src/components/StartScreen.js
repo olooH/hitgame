@@ -24,7 +24,7 @@ export default function StartScreen({
       >
         {/* 로고 */}
         <img
-          src="/logo.png"
+          src={`${process.env.PUBLIC_URL}/logo.png`}
           alt="로고"
           style={{
             position: "absolute",
@@ -41,7 +41,7 @@ export default function StartScreen({
         </h1>
 
         <img
-          src="/soccerball.png"
+          src={`${process.env.PUBLIC_URL}/soccerball.png`}
           alt="축구공"
           onClick={() => setScreen("countdown")}
           style={{

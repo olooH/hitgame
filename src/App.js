@@ -7,11 +7,11 @@ function App() {
   const [timeLeft, setTimeLeft] = useState(5);
   const [score, setScore] = useState(0);
 
-  // 1) 카운트다운
+  // 카운트다운 (start → countdown)
   useEffect(() => {
     if (screen === "countdown" && count > 0) {
-      const t = setTimeout(() => setCount(c => c - 1), 1000);
-      return () => clearTimeout(t);
+      const timer = setTimeout(() => setCount(c => c - 1), 1000);
+      return () => clearTimeout(timer);
     }
     if (screen === "countdown" && count === 0) {
       setScreen("game");
@@ -19,15 +19,14 @@ function App() {
     }
   }, [screen, count]);
 
-  // 2) 게임 타이머 → ResultOverlay → ResultDetail
+  // 게임 진행 및 종료 오버레이 → 상세 결과
   useEffect(() => {
     if (screen === "game" && timeLeft > 0) {
-      const t = setTimeout(() => setTimeLeft(t => t - 1), 1000);
-      return () => clearTimeout(t);
+      const timer = setTimeout(() => setTimeLeft(t => t - 1), 1000);
+      return () => clearTimeout(timer);
     }
     if (screen === "game" && timeLeft === 0) {
       setScreen("resultOverlay");
-      // 1.5초 뒤 상세 결과로 이동
       setTimeout(() => setScreen("resultDetail"), 1500);
     }
   }, [screen, timeLeft]);
@@ -46,7 +45,6 @@ function App() {
         background: "#000",
       }}
     >
-      {/* 모바일 프레임 */}
       <div
         style={{
           width: "100%",
@@ -56,55 +54,35 @@ function App() {
           flexDirection: "column",
         }}
       >
-        {/* 콘텐츠 영역: game/countdown 은 overflow hidden, detail 은 auto */}
         <div
           style={{
             flex: 1,
             overflow: isDetail ? "auto" : "hidden",
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${process.env.PUBLIC_URL}/background.jpg)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              backgroundImage: `
-                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url(${process.env.PUBLIC_URL}/background.jpg)
-              `,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <StartScreen
-              screen={screen}
-              count={count}
-              timeLeft={timeLeft}
-              score={score}
-              setScreen={setScreen}
-              setCount={setCount}
-              setScore={setScore}
-            />
-          </div>
+          <StartScreen
+            screen={screen}
+            count={count}
+            timeLeft={timeLeft}
+            score={score}
+            setScreen={setScreen}
+            setCount={setCount}
+            setScore={setScore}
+          />
         </div>
 
-        {/* 결과 상세에서만 푸터 노출 */}
         {isDetail && (
           <footer
             style={{
-              flex: 0,
               background: "#f2f2f2",
-              padding: "16px",
+              padding: 16,
               boxSizing: "border-box",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "24px",
-                marginBottom: "16px",
-              }}
-            >
+            <div style={{ display: "flex", justifyContent: "center", gap: 24, marginBottom: 16 }}>
               <button style={{ background: "none", border: "none", fontSize: 24, cursor: "pointer" }}>💬</button>
               <button style={{ background: "none", border: "none", fontSize: 24, cursor: "pointer" }}>🔗</button>
             </div>
@@ -114,7 +92,7 @@ function App() {
             <p style={{ textAlign: "center", fontSize: 16, fontWeight: 700, margin: "0 0 16px" }}>
               매치업 다운로드하기
             </p>
-            <div style={{ display: "flex", justifyContent: "center", gap: "16px", marginBottom: "16px" }}>
+            <div style={{ display: "flex", justifyContent: "center", gap: 16, marginBottom: 16 }}>
               <img src={`${process.env.PUBLIC_URL}/google-play.png`} alt="Google Play" style={{ height: 40 }} />
               <img src={`${process.env.PUBLIC_URL}/app-store.png`} alt="App Store" style={{ height: 40 }} />
             </div>

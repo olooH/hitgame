@@ -11,7 +11,7 @@ export default function StartScreen({
 }) {
   const PUB = process.env.PUBLIC_URL;
 
-  // ===== START 화면 =====
+  // START
   if (screen === "start") {
     return (
       <div
@@ -25,21 +25,10 @@ export default function StartScreen({
           boxSizing: "border-box",
         }}
       >
-        {/* 로고 */}
-        <img
-          src={`${PUB}/logo.png`}
-          alt="매치업 로고"
-          style={{
-            position: "absolute",
-            top: 20,
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: 100,
-          }}
-        />
-
-        {/* 텍스트 */}
-        <div style={{ marginTop: 140, textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}>
+        {/* 안내 텍스트 */}
+        <div
+          style={{ marginTop: 100, textShadow: "0 2px 4px rgba(0,0,0,0.6)" }}
+        >
           <p style={{ fontSize: 14, lineHeight: 1.2 }}>
             가장 빠른 사람은 누구?!
           </p>
@@ -63,21 +52,25 @@ export default function StartScreen({
             filter: "drop-shadow(0 8px 12px rgba(0,0,0,0.5))",
             transition: "transform 0.1s ease, filter 0.2s ease",
           }}
-          onMouseDown={e => {
+          onMouseDown={(e) => {
             e.currentTarget.style.transform = "scale(0.93)";
-            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
           }}
-          onMouseUp={e => {
+          onMouseUp={(e) => {
             e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
           }}
-          onTouchStart={e => {
+          onTouchStart={(e) => {
             e.currentTarget.style.transform = "scale(0.93)";
-            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
           }}
-          onTouchEnd={e => {
+          onTouchEnd={(e) => {
             e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
           }}
         />
 
@@ -95,7 +88,7 @@ export default function StartScreen({
     );
   }
 
-  // ===== COUNTDOWN 화면 =====
+  // COUNTDOWN
   if (screen === "countdown") {
     return (
       <div
@@ -116,43 +109,45 @@ export default function StartScreen({
     );
   }
 
-  // ===== GAME 화면 =====
+  // GAME
   if (screen === "game") {
     return (
       <div
         style={{
           width: "100%",
-          textAlign: "center",
-          color: "#FFFFFF",
-          paddingTop: 24,
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
           boxSizing: "border-box",
         }}
       >
-        {/* 부드러운 진행바 */}
+        {/* 진행바 */}
         <div
           style={{
-            width: "80%",
-            height: 8,
+            width: "90%",
+            height: 12,
             background: "rgba(255,255,255,0.3)",
-            margin: "0 auto 16px",
-            borderRadius: 4,
+            borderRadius: 6,
             overflow: "hidden",
+            marginBottom: 24,
           }}
         >
           <div
             style={{
               height: "100%",
-              background: "#4ade80",
+              background: "linear-gradient(90deg, #A4FD46, #FE96C5)",
               animation: "progress 5s linear forwards",
             }}
           />
         </div>
 
-        {/* 연타용 축구공 */}
+        {/* 연타용 축구공 (중앙) */}
         <img
           src={`${PUB}/soccerball.png`}
           alt="클릭공"
-          onClick={() => setScore(s => s + 1)}
+          onClick={() => setScore((s) => s + 1)}
           style={{
             width: "60%",
             maxWidth: 200,
@@ -162,71 +157,103 @@ export default function StartScreen({
             filter: "drop-shadow(0 8px 12px rgba(0,0,0,0.5))",
             transition: "transform 0.1s ease, filter 0.2s ease",
           }}
-          onMouseDown={e => {
+          onMouseDown={(e) => {
             e.currentTarget.style.transform = "scale(0.93)";
-            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
           }}
-          onMouseUp={e => {
+          onMouseUp={(e) => {
             e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
           }}
-          onTouchStart={e => {
+          onTouchStart={(e) => {
             e.currentTarget.style.transform = "scale(0.93)";
-            e.currentTarget.style.filter = "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 4px 6px rgba(0,0,0,0.7))";
           }}
-          onTouchEnd={e => {
+          onTouchEnd={(e) => {
             e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.filter = "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
+            e.currentTarget.style.filter =
+              "drop-shadow(0 8px 12px rgba(0,0,0,0.5))";
           }}
         />
-
-        <p style={{ marginTop: 16, fontSize: 18 }}>클릭 수: {score}</p>
       </div>
     );
   }
 
-  // ===== RESULT 화면 =====
-  return (
-    <div
-      style={{
-        width: "100%",
-        textAlign: "center",
-        color: "#FFFFFF",
-        paddingTop: 24,
-        boxSizing: "border-box",
-      }}
-    >
-      <h1
+  // RESULT OVERLAY
+  if (screen === "resultOverlay") {
+    return (
+      <div style={{ width: "100%", height: "100%", position: "relative" }}>
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0,0,0,0.6)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h1
+            style={{
+              color: "#FFFFFF",
+              fontSize: 32,
+              fontWeight: "bold",
+              textShadow: "0 2px 4px rgba(0,0,0,0.8)",
+            }}
+          >
+            게임 끝!
+          </h1>
+        </div>
+      </div>
+    );
+  }
+
+  // RESULT DETAIL
+  if (screen === "resultDetail") {
+    return (
+      <div
         style={{
-          fontSize: 20,
-          fontWeight: "bold",
-          marginBottom: 16,
-          textShadow: "0 2px 4px rgba(0,0,0,0.6)",
+          width: "100%",
+          padding: "24px 16px",
+          boxSizing: "border-box",
+          textAlign: "center",
+          color: "#FFFFFF",
         }}
       >
-        게임 끝!
-      </h1>
-      <p style={{ fontSize: 36, fontWeight: "bold" }}>{score}회</p>
-      <p style={{ marginTop: 8, fontSize: 14 }}>혹시... 손흥민...?</p>
-      <button
-        onClick={() => {
-          setScreen("start");
-          setCount(5);
-          setScore(0);
-        }}
-        style={{
-          marginTop: 24,
-          padding: "8px 24px",
-          background: "#FFFFFF",
-          color: "#000000",
-          border: "none",
-          borderRadius: 9999,
-          fontWeight: "600",
-          cursor: "pointer",
-        }}
-      >
-        다시하기 ↻
-      </button>
-    </div>
-  );
+        <p style={{ fontSize: 14, marginBottom: 8 }}>나의 점수는 …</p>
+        <p style={{ fontSize: 36, fontWeight: "bold", margin: "4px 0" }}>
+          {score}회
+        </p>
+        <p style={{ fontSize: 14, marginBottom: 16 }}>혹시 … 손흥민 …?</p>
+        <button
+          onClick={() => {
+            setScreen("start");
+            setCount(5);
+            setScore(0);
+          }}
+          style={{
+            width: "100%",
+            padding: "12px 0",
+            background: "#A4FD46",
+            color: "#000000",
+            border: "none",
+            borderRadius: 9999,
+            fontSize: 16,
+            fontWeight: "600",
+            cursor: "pointer",
+          }}
+        >
+          다시하기 ↻
+        </button>
+      </div>
+    );
+  }
+
+  return null;
 }

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 100% 높이/안전영역 보정 */
 html, body, #root {
   height: 100%;
   width: 100%;
@@ -14,7 +13,6 @@ html, body, #root {
                "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
 }
 
-/* 더블탭 줌 방지, 터치 지연 제거 */
 * {
   touch-action: manipulation;
 }
@@ -22,7 +20,6 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* 부드러운 5초 진행바 애니메이션 */
 @keyframes progress {
   from { width: 100%; }
   to   { width: 0%; }

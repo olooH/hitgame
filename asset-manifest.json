@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/hitgame/static/css/main.d7b14d1f.css",
-    "main.js": "/hitgame/static/js/main.1b5951f3.js",
+    "main.css": "/hitgame/static/css/main.88d022dc.css",
+    "main.js": "/hitgame/static/js/main.a8f714d7.js",
     "static/js/453.b0d8b43f.chunk.js": "/hitgame/static/js/453.b0d8b43f.chunk.js",
     "static/media/background.jpg": "/hitgame/static/media/background.2a34f0f3cd240bd1624a.jpg",
     "static/media/soccerball.png": "/hitgame/static/media/soccerball.1e739bb1dfea5aeb294b.png",
     "index.html": "/hitgame/index.html",
-    "main.d7b14d1f.css.map": "/hitgame/static/css/main.d7b14d1f.css.map",
-    "main.1b5951f3.js.map": "/hitgame/static/js/main.1b5951f3.js.map",
+    "main.88d022dc.css.map": "/hitgame/static/css/main.88d022dc.css.map",
+    "main.a8f714d7.js.map": "/hitgame/static/js/main.a8f714d7.js.map",
     "453.b0d8b43f.chunk.js.map": "/hitgame/static/js/453.b0d8b43f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7b14d1f.css",
-    "static/js/main.1b5951f3.js"
+    "static/css/main.88d022dc.css",
+    "static/js/main.a8f714d7.js"
   ]
 }

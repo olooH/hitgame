@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.css": "/hitgame/static/css/main.88d022dc.css",
-    "main.js": "/hitgame/static/js/main.26de8f35.js",
+    "main.css": "/hitgame/static/css/main.891a2aaf.css",
+    "main.js": "/hitgame/static/js/main.20fbe587.js",
     "static/js/453.b0d8b43f.chunk.js": "/hitgame/static/js/453.b0d8b43f.chunk.js",
     "static/media/background.jpg": "/hitgame/static/media/background.2a34f0f3cd240bd1624a.jpg",
+    "static/media/icon.png": "/hitgame/static/media/icon.1e739bb1dfea5aeb294b.png",
     "static/media/soccerball.png": "/hitgame/static/media/soccerball.1e739bb1dfea5aeb294b.png",
-    "static/media/appstore.svg": "/hitgame/static/media/appstore.3a6b60b5ed71fb129865e949a9cd060d.svg",
-    "static/media/google.svg": "/hitgame/static/media/google.39ae09439acf0e2a1070dceb69c6d8ba.svg",
     "index.html": "/hitgame/index.html",
-    "main.88d022dc.css.map": "/hitgame/static/css/main.88d022dc.css.map",
-    "main.26de8f35.js.map": "/hitgame/static/js/main.26de8f35.js.map",
+    "main.891a2aaf.css.map": "/hitgame/static/css/main.891a2aaf.css.map",
+    "main.20fbe587.js.map": "/hitgame/static/js/main.20fbe587.js.map",
     "453.b0d8b43f.chunk.js.map": "/hitgame/static/js/453.b0d8b43f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.88d022dc.css",
-    "static/js/main.26de8f35.js"
+    "static/css/main.891a2aaf.css",
+    "static/js/main.20fbe587.js"
   ]
 }
